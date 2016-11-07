@@ -1,0 +1,31 @@
+<script type="text/javascript">
+    RED.nodes.registerType('coe-out',{
+        category: 'function',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""},
+            topic_prefix: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "file.png",
+        label: function() {
+            return this.name||"coe-out";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="coe-out">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-topic_prefix"><i class="icon-tag"></i> Topic Prefix</label>
+        <input type="text" id="node-input-topic_prefix" placeholder="Topic Prefix">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="coe-out">
+    <p>A simple node that converts the message received from the CMI via UDP</p>
+</script>

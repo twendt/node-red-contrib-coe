@@ -1,0 +1,14 @@
+{
+    "name"         : "node-red-contrib-coe",
+    "version"      : "0.0.1",
+    "description"  : "A node for node-red to handle data from TA CMI via COE",
+    "dependencies": {
+    },
+    "keywords": [ "node-red" ],
+    "node-red"     : {
+        "nodes": {
+            "coe-out": "coe/ta-cmi-coe-out.js",
+            "coe-in": "coe/ta-cmi-coe-in.js"
+        }
+    }
+}
