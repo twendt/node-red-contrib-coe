@@ -15,8 +15,14 @@ module.exports = function(RED) {
 		value = parseInt(msg.payload);
 		buf = new Buffer(14);
 		buf.fill(0);
-	        buf.writeUInt8(nodeid, 0);
-		buf.writeUInt16LE(value, 2);
+                if (port >= 1 && port <= 16) {
+	        	buf.writeUInt8(nodeid, 0);
+			buf.writeUInt16LE(value, 2);
+		} else {
+			buf.writeUInt8(1, 1);
+	        	buf.writeUInt8(nodeid, 0);
+			buf.writeUInt16LE(value, 2);
+		}
 		node.send({payload: buf});
 		node.send({payload: {nodeid: vals[0], port: vals[1], value: msg.payload} });
 	});
