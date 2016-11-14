@@ -19,7 +19,8 @@ module.exports = function(RED) {
 	        	buf.writeUInt8(nodeid, 0);
 			buf.writeUInt16LE(value, 2);
 		} else {
-			buf.writeUInt8(1, 1);
+                        var group = Math.floor(((port-17)/4)+1);
+			buf.writeUInt8(group, 1);
 	        	buf.writeUInt8(nodeid, 0);
 			buf.writeUInt16LE(value, 2);
 		}
