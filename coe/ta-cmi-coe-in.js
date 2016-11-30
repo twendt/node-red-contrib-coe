@@ -14,7 +14,7 @@ module.exports = function(RED) {
 					if (port >= 49) {
 						msgtype = "digital";
 					}
-					value = buffer.readUInt16LE(i * 2 + 2);
+					value = buffer.readInt16LE(i * 2 + 2);
 					var unit = buffer[i + 10];
 					if (unit == 1) {
 						value = value / 10;
