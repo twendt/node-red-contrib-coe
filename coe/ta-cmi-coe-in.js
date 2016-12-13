@@ -16,7 +16,8 @@ module.exports = function(RED) {
 					}
 					value = buffer.readInt16LE(i * 2 + 2);
 					var unit = buffer[i + 10];
-					if (unit == 1) {
+					//unit is wrongly sent as 255 if negativ value
+					if (unit == 1 || unit == 255) {
 						value = value / 10;
 					}
 					node.send([{
